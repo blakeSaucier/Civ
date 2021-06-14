@@ -1,0 +1,5 @@
+{
+  "connection": "",
+  "migrationsDir": "migrations",
+  "driver": "postgres"
+}
