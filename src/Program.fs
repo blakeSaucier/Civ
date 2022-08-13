@@ -1,3 +1,5 @@
+module Civ.Program
+
 open Microsoft.AspNetCore.Hosting
 open Microsoft.AspNetCore.Builder
 open Microsoft.Extensions.Hosting
@@ -6,11 +8,6 @@ open Microsoft.Extensions.Logging
 open Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer
 open Giraffe
 open Civ.Game.Router
-let webApp =
-    choose [
-        route "/ping"   >=> text "pong"
-        gameRouter
-    ]
 
 type Startup() =
     member __.ConfigureServices (services : IServiceCollection) =
@@ -22,7 +19,7 @@ type Startup() =
                         (env : IHostEnvironment)
                         (loggerFactory : ILoggerFactory) =
         // Add Giraffe to the ASP.NET Core pipeline
-        app.UseGiraffe webApp
+        app.UseGiraffe gameRouter
         app.UseStaticFiles() |> ignore
         app.UseSpaStaticFiles()
         app.UseSpa (fun spa ->

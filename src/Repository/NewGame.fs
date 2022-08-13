@@ -1,6 +1,5 @@
-﻿module Civ.Game.Repository.NewGame
+﻿module Civ.Repository.NewGame
 open Civ
-open FSharp.Control.Tasks
 open Postgres
 open Npgsql.FSharp
 

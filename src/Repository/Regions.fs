@@ -1,4 +1,4 @@
-﻿module Civ.Game.Repository.Regions
+﻿module Civ.Repository.Regions
 
 type Region =
     { Name: string

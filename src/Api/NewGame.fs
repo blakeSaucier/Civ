@@ -1,24 +1,18 @@
 ﻿module Civ.Game.Handlers.New
 
-open Civ.Game
+open Civ
+open Civ.Models.Game
 open Giraffe
 open Microsoft.AspNetCore.Http
-open FSharp.Control.Tasks
 open GameCode
 open Repository.NewGame
 open FSharp.Json
     
-type NewCivGameDto =
-    { gameName: string
-      password: string
-      civCount: int
-      civs: {| name: string; color: string |} list }
-
 let submitGame: HttpHandler =
     fun (next: HttpFunc) (ctx: HttpContext) ->
         task {
             let! body = ctx.ReadBodyFromRequestAsync()
-            let newGame = Json.deserialize<NewCivGameDto> body
+            let newGame = Json.deserialize<CreateNewCivGame> body
             let newGameRequest =
                 { Name = newGame.gameName
                   Password = newGame.password

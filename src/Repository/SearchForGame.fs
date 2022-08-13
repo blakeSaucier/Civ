@@ -1,9 +1,8 @@
-﻿module Civ.Game.Repository.SearchForGame
+﻿module Civ.Repository.SearchForGame
 
 open System
 open Civ
 open Postgres
-open FSharp.Control.Tasks
 
 type Game =
     { Id: int

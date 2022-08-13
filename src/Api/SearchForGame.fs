@@ -1,8 +1,7 @@
 ﻿module Civ.Game.Handlers.GetGame
 
-open Civ.Game.Repository.SearchForGame
+open Civ.Repository.SearchForGame
 open Microsoft.AspNetCore.Http
-open FSharp.Control.Tasks
 open Giraffe
 
 let searchForGame : HttpHandler =

@@ -1,4 +1,4 @@
-﻿module Civ.Game.GameCode
+﻿module Civ.GameCode
 
 open System
 let rand = Random()

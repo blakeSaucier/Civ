@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Civ", "src\Civ.fsproj", "{64262BE6-1F5B-4A9E-BDC1-A6FFCF8797E5}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Civ.Migrations", "Civ.Migrations\Civ.Migrations.fsproj", "{9FE1FB3B-07B8-4283-83BA-4100B80413A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{64262BE6-1F5B-4A9E-BDC1-A6FFCF8797E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64262BE6-1F5B-4A9E-BDC1-A6FFCF8797E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64262BE6-1F5B-4A9E-BDC1-A6FFCF8797E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FE1FB3B-07B8-4283-83BA-4100B80413A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FE1FB3B-07B8-4283-83BA-4100B80413A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FE1FB3B-07B8-4283-83BA-4100B80413A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FE1FB3B-07B8-4283-83BA-4100B80413A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

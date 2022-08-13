@@ -1,8 +1,15 @@
 ﻿module Civ.Postgres
 
 open Npgsql.FSharp
+open Microsoft.Extensions.Configuration
 
-let private conn = "" 
+let config =
+    ConfigurationBuilder()
+        .AddJsonFile("./appsettings.json")
+        .AddEnvironmentVariables()
+        .Build()        
+
+let private conn = config["Db"]
 
 let connect () =
     Sql.connect conn

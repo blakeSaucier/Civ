@@ -1,8 +1,7 @@
-﻿module Civ.Game.Repository.GetGameRegions
+﻿module Civ.Repository.GetGameRegions
 
 open Civ
 open Postgres
-open FSharp.Control.Tasks
     
 type Region =
     { CivId: int
