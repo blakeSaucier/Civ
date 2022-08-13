@@ -22,6 +22,22 @@ let mergeRegionsAssignedToCivs (civGame: CivGame) =
       Name = civGame.Name
       Code = civGame.Code
       Regions = regionsViewModel }
+    
+let allRegionsUnassigned (game: Game) =
+    let regions =
+        allRegions
+        |> List.map (fun r ->
+            { CivId = 0
+              CivName = ""
+              RegionName = r.Name
+              Assigned = false
+              Color = ""
+              Code = r.Code
+              Coords = r.Coords })
+    { GameId = game.Id
+      Name = game.Name
+      Code = game.Code
+      Regions = regions }
  
 let getGameRegions (gameId: int) : HttpHandler =
     fun (next: HttpFunc) (ctx: HttpContext) ->
@@ -34,11 +50,7 @@ let getGameRegions (gameId: int) : HttpHandler =
                 let! gameRegionsAssignedToCivs = getGameRegions g.Id
                 match gameRegionsAssignedToCivs with
                 | None ->
-                    let viewModel =
-                        { GameId = g.Id
-                          Name = g.Name
-                          Code = g.Code
-                          Regions = [] }
+                    let viewModel = allRegionsUnassigned g
                     return! json viewModel next ctx
                 | Some r ->
                     let viewModel = mergeRegionsAssignedToCivs r

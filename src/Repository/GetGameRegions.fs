@@ -1,19 +1,8 @@
 ﻿module Civ.Repository.GetGameRegions
 
 open Civ
+open Models.Game
 open Postgres
-    
-type Region =
-    { CivId: int
-      Name: string
-      Color: string
-      Code: string }
-
-type CivGame =
-    { Id: int
-      Name: string
-      Code: string
-      Regions: Region list }
     
 let getGameRegions (gameId: int) =
     let getGame =

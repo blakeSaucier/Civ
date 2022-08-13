@@ -17,6 +17,7 @@ function GameHeader(props) {
 
 function ViewGame(props) {
     const [ game, setGame] = useState({ name: "", regions: []});
+    const [ civs, setCivs ] = useState([]);
     const { id } = props.match.params;
     
     useEffect(() => {
@@ -24,6 +25,9 @@ function ViewGame(props) {
             const game = await get(`/api/game/${id}/regions`)
                 .then(res => res.json());
             setGame(game);
+            const civs = await get(`/api/game/${id}/civs`)
+              .then(res => res.json());
+            setCivs(civs);
         }
         loadData();
     }, []);
@@ -32,7 +36,7 @@ function ViewGame(props) {
         <div>
             <GameHeader game={game}/>
             <Container fluid={true} >
-                <Map game={game}/>
+                <Map civs={civs} game={game}/>
             </Container>    
         </div>
     )

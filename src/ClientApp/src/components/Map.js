@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
     MapContainer,
     Popup,
@@ -10,7 +10,7 @@ import {CRS} from 'leaflet';
 
 const bounds = [[0,0], [349, 465]];
 
-function Region ({ region }) {
+function Region ({ region, civs }) {
     const [color, setColor] = useState(region.color);
     console.log(color);
     const handleColorChange = e => setColor(e.target.value);
@@ -36,11 +36,8 @@ function Region ({ region }) {
                     name="color"
                     id="grey"
                     onChange={handleColorChange}>
-                    <option value={""}>none</option>
-                    <option value={"blue"}>blue</option>
-                    <option value={"red"}>red</option>
-                    <option value={"purple"}>purple</option>
-                    <option value={"yellow"}>yellow</option>
+                    <option value={""} id={0}>None</option>
+                    {civs.map(civ => <option id={civ.id} value={civ.color}>{civ.name} </option>)}
                 </select>
             </Popup>
         </Polygon>
@@ -55,7 +52,7 @@ function ImageMap() {
     )
 }
 
-function Map({ game }) {
+function Map(props) {
     return (
         <div id="map">
             <MapContainer
@@ -64,7 +61,7 @@ function Map({ game }) {
                 center={[175, 232]}
                 zoom={2}>
                 <ImageMap/>
-                { game.regions.map(region => <Region region={region} key={region.regionName} />) }
+                { props.game.regions.map(region => <Region civs={props.civs} region={region} key={region.regionName} />) }
             </MapContainer>
         </div>
     )

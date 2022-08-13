@@ -18,9 +18,11 @@
         <Compile Include="Repository\NewGame.fs" />
         <Compile Include="Repository\GetGameRegions.fs" />
         <Compile Include="Repository\SearchForGame.fs" />
+        <Compile Include="Repository\Civs.fs" />
         <Compile Include="Api\NewGame.fs" />
         <Compile Include="Api\SearchForGame.fs" />
         <Compile Include="Api\GetGameRegions.fs" />
+        <Compile Include="Api\Civs.fs" />
         <Compile Include="Api\Router.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
