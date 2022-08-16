@@ -32,7 +32,7 @@ function ViewGame(props) {
             setGame({...game, civs})
         }
         loadData();
-    });
+    }, []);
     
     return (
         <div>
