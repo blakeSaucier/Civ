@@ -1,6 +1,6 @@
 ﻿import React, { useState} from 'react';
 import { useHistory } from 'react-router-dom'
-import { Button, Card, CardBody, Form, FormGroup, Input, Label, Spinner } from "reactstrap";
+import { Spinner } from "reactstrap";
 import { get } from "../repo/apiRequest";
 
 function GoToGame() {
@@ -25,19 +25,15 @@ function GoToGame() {
     }
     
     return(
-        <Card>
-            <CardBody>
-                <Form onSubmit={handleSubmit}>
-                    <FormGroup>
-                        <Label for="gameCode">Game Code or Id</Label>
-                        <Input onChange={handleGameCodeUpdate} type="text" name="gameCode"/>
-                    </FormGroup>
-                    { submitting 
-                        ? <Spinner color="primary"/>
-                        : <Button>Go to game</Button> }
-                </Form>
-            </CardBody>
-        </Card>
+      <div className="input-group input-group-lg col-md-4">
+          <input onChange={handleGameCodeUpdate} type="text" className="form-control" placeholder="Game Id or code" />
+          <div className="input-group-append">
+              { submitting
+                ? <Spinner color="primary"/>
+                : <button onClick={handleSubmit} className="btn btn-primary btn-lg">Go to game</button> }
+          </div>
+          
+      </div>
     )
 }
 

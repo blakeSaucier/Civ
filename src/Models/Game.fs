@@ -23,6 +23,10 @@ type CreateNewCivGame =
       civCount: int
       civs: {| name: string; color: string |} list }
     
+type SetRegionToCiv =
+    { CivId: int
+      RegionCode: string }
+    
 type RegionViewModel =
     { CivId: int
       CivName: string

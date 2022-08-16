@@ -19,10 +19,12 @@
         <Compile Include="Repository\GetGameRegions.fs" />
         <Compile Include="Repository\SearchForGame.fs" />
         <Compile Include="Repository\Civs.fs" />
+        <Compile Include="Repository\SetCivRegion.fs" />
         <Compile Include="Api\NewGame.fs" />
         <Compile Include="Api\SearchForGame.fs" />
         <Compile Include="Api\GetGameRegions.fs" />
         <Compile Include="Api\Civs.fs" />
+        <Compile Include="Api\CivRegions.fs" />
         <Compile Include="Api\Router.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
@@ -50,6 +52,15 @@
           <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="pub\web.config" />
+      <_ContentIncludedByDefault Remove="pub\appsettings.json" />
+      <_ContentIncludedByDefault Remove="pub\Civ.deps.json" />
+      <_ContentIncludedByDefault Remove="pub\Civ.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="pub\ClientApp\build\asset-manifest.json" />
+      <_ContentIncludedByDefault Remove="pub\ClientApp\build\manifest.json" />
     </ItemGroup>
     
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
